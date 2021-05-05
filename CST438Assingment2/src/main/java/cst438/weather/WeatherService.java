@@ -27,14 +27,15 @@ public class WeatherService {
 		this.apiKey = apiKey;
 	}
 	
-	public TimeAndTemp getWeather(String cityName) {
+	public TimeAndTemp getTempAndTime(String cityName) {
 		ResponseEntity<JsonNode> response = restTemplate.getForEntity(weatherUrl + "?q=" + cityName +"&appid="+ apiKey, JsonNode.class);
 		JsonNode json = response.getBody();
 		Log.info("Status code from weather server:" + response.getStatusCodeValue());
 		double temp = json.get("main").get("temp").asDouble();
-		String condition = json.get("weather").get(0).get("description").asText();
+		long time = json.get("dt").asLong();
+		int timezone = json.get("timezone").asInt();
 		
-		return new TimeAndTemp(temp, condition);
+		return new TimeAndTemp(temp, time, timezone);
 	}
 	
 }

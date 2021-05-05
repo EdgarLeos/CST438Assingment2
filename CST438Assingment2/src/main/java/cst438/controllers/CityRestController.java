@@ -34,7 +34,7 @@ public class CityRestController {
 			
 			City city=cities.get(0);
 			
-			TimeAndTemp cityWeather = weatherService.getWeather(name);
+			TimeAndTemp cityWeather = weatherService.getTempAndTime(name);
 			
 			double tempF = Math.round((cityWeather.getTemp() - 273.15)* 9.0/5.0 +32.0);
 			cityWeather.setTemp(tempF);
