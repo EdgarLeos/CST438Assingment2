@@ -1,7 +1,7 @@
 package cst438.weather;
 
 
-import cst438.domain.CityWeather;
+import cst438.domain.TimeAndTemp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,14 +27,14 @@ public class WeatherService {
 		this.apiKey = apiKey;
 	}
 	
-	public CityWeather getWeather(String cityName) {
+	public TimeAndTemp getWeather(String cityName) {
 		ResponseEntity<JsonNode> response = restTemplate.getForEntity(weatherUrl + "?q=" + cityName +"&appid="+ apiKey, JsonNode.class);
 		JsonNode json = response.getBody();
 		Log.info("Status code from weather server:" + response.getStatusCodeValue());
 		double temp = json.get("main").get("temp").asDouble();
 		String condition = json.get("weather").get(0).get("description").asText();
 		
-		return new CityWeather(temp, condition);
+		return new TimeAndTemp(temp, condition);
 	}
 	
 }

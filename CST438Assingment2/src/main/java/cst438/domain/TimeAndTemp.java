@@ -1,15 +1,17 @@
 package cst438.domain;
 
-public class CityWeather {
+
+
+public class TimeAndTemp {
 	
 	private double temp;
 	private String condition;
 	
-	public CityWeather() {
+	public TimeAndTemp() {
 		
 	}
 
-	public CityWeather(double temp, String condition) {
+	public TimeAndTemp(double temp, String condition) {
 		super();
 		this.temp = temp;
 		this.condition = condition;
@@ -44,7 +46,7 @@ public class CityWeather {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CityWeather other = (CityWeather) obj;
+		TimeAndTemp other = (TimeAndTemp) obj;
 		if (condition == null) {
 			if (other.condition != null)
 				return false;

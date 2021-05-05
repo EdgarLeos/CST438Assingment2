@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cst438.domain.City;
 import cst438.domain.CityRepository;
-import cst438.domain.CityWeather;
+import cst438.domain.TimeAndTemp;
 import cst438.weather.WeatherService;
 @RestController
 public class CityRestController {
@@ -34,7 +34,7 @@ public class CityRestController {
 			
 			City city=cities.get(0);
 			
-			CityWeather cityWeather = weatherService.getWeather(name);
+			TimeAndTemp cityWeather = weatherService.getWeather(name);
 			
 			double tempF = Math.round((cityWeather.getTemp() - 273.15)* 9.0/5.0 +32.0);
 			cityWeather.setTemp(tempF);
