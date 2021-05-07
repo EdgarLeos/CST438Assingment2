@@ -5,16 +5,15 @@ public class CityInfo {
 	private int id;
 	private String name;
 	private int population;
-	private double temp;
-	private long time;
-	private int timezone;
+	private String temp;
+	private String time;
 	private String countryCode;
 	private String countryName;
 	private String district; 
 
 	public CityInfo() {}
 	
-	public CityInfo(int id, String name, int population, double temp, long time, int timezone, String countryCode,
+	public CityInfo(int id, String name, int population, String temp, String time, String countryCode,
 			String countryName, String district) {
 		super();
 		this.id = id;
@@ -22,7 +21,6 @@ public class CityInfo {
 		this.population = population;
 		this.temp = temp;
 		this.time = time;
-		this.timezone = timezone;
 		this.countryCode = countryCode;
 		this.countryName = countryName;
 		this.district = district;
@@ -52,28 +50,20 @@ public class CityInfo {
 		this.population = population;
 	}
 
-	public double getTemp() {
+	public String getTemp() {
 		return temp;
 	}
 
-	public void setTemp(double temp) {
+	public void setTemp(String temp) {
 		this.temp = temp;
 	}
 
-	public long getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(long time) {
+	public void setTime(String time) {
 		this.time = time;
-	}
-
-	public int getTimezone() {
-		return timezone;
-	}
-
-	public void setTimezone(int timezone) {
-		this.timezone = timezone;
 	}
 
 	public String getCountryCode() {
@@ -133,11 +123,12 @@ public class CityInfo {
 			return false;
 		if (population != other.population)
 			return false;
-		if (Double.doubleToLongBits(temp) != Double.doubleToLongBits(other.temp))
+		if (temp == null) {
+			if (other.temp != null)
+				return false;
+		} else if (!temp.equals(other.temp))
 			return false;
 		if (time != other.time)
-			return false;
-		if (timezone != other.timezone)
 			return false;
 		return true;
 	}
@@ -145,7 +136,7 @@ public class CityInfo {
 	@Override
 	public String toString() {
 		return "CityInfo [id=" + id + ", name=" + name + ", population=" + population + ", temp=" + temp + ", time="
-				+ time + ", timezone=" + timezone + ", countryCode=" + countryCode + ", countryName=" + countryName
+				+ time + ", countryCode=" + countryCode + ", countryName=" + countryName
 				+ ", district=" + district + "]";
 	}
 
