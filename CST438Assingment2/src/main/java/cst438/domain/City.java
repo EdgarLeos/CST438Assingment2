@@ -67,11 +67,11 @@ public class City {
 		this.population = population;
 	}
 
-	public TimeAndTemp getWeather() {
+	public TimeAndTemp getTimeAndTemp() {
 		return weather;
 	}
 
-	public void setWeather(TimeAndTemp weather) {
+	public void setTimeAndTemp(TimeAndTemp weather) {
 		this.weather = weather;
 	}
 

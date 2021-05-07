@@ -17,8 +17,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cst438.domain.City;
 import cst438.domain.CityRepository;
 import cst438.domain.TimeAndTemp;
+import cst438.service.WeatherService;
 import cst438.domain.Country;
-import cst438.weather.WeatherService;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

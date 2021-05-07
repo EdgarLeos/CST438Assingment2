@@ -1,4 +1,4 @@
-package cst438.weather;
+package cst438.service;
 
 
 import cst438.domain.TimeAndTemp;
